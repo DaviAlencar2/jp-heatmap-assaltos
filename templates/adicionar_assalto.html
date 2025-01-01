@@ -12,14 +12,14 @@
         <h1>Adicionar Assalto</h1>
         <form action="{{ url_for('adicionar_assalto') }}" method="POST">
             <div class="mb-3">
-                <label for="bairro" class="form-label">Bairro:</label>
-                <input type="text" class="form-control" id="bairro" name="bairro">
+                <label for="bairro" class="form-label">Endereço ou Bairro (obrigatório):</label>
+                <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Ex: Avenida Paulista, 1578, São Paulo, SP, Brasil">
             </div>
             <div >
-                <label for="latitude" class="form-label">latitude:</label>
+                <label for="latitude" class="form-label">latitude(Apenas se não colocou endereço.):</label>
                 <input type="text" class="form-control" id="latitude" name="latitude">
 
-                <label for="longitude" class="form-label">longitude: </label>
+                <label for="longitude" class="form-label">longitude (Apenas se não colocou endereço.): </label>
                 <input type="text" class="form-control" id="longitude" name="longitude">
             </div>
             <div class="mb-3">
