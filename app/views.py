@@ -2,8 +2,12 @@ from app.main import app
 from flask import render_template,url_for,jsonify,request,redirect
 from data.dados import porcentagem_bairros,data_com_mais_assaltos,data,carregar_dados_por_ano,data_adicionar_assalto,csv_to_dataframe
 from geocode.geocode import geocode_address
+from dotenv import load_dotenv
+import os
 
-API_KEY = "SUA_CHAVE_GOOGLE_API"
+load_dotenv()
+
+API_KEY = os.getenv("API_KEY")
 
 @app.route("/")
 def home():
@@ -12,11 +16,6 @@ def home():
 @app.route('/estatisticas')
 def estatisticas():
     return render_template("estatisticas.html", porcentagem_bairros=porcentagem_bairros(), dicionario_fatiado=data_com_mais_assaltos())
-
-@app.route('/adicionar_assalto', methods=['GET', 'POST'])
-def adicionar_assalto():
-    from geocode import geocode_address  # Importe a função
-API_KEY = "YOUR_GOOGLE_API_KEY"
 
 @app.route('/adicionar_assalto', methods=['GET', 'POST'])
 def adicionar_assalto():
