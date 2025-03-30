@@ -16,7 +16,6 @@ function updateMap(year) {
         }
     });
 
-    // Busca os dados filtrados do Flask
     fetch(`/dados/${year}`)
         .then(response => response.json())
         .then(data => {

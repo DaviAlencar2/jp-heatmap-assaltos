@@ -27,11 +27,11 @@
                 <label for="data" class="form-label">Data:</label>
                 <input type="date" class="form-control" id="data" name="data">
             </div>
-            <button type="submit" class="btn btn-primary">Adicionar</button>
+            <div class="d-flex align-items-center gap-2">
+                <button type="submit" class="btn btn-primary">Adicionar</button>
+                <a href="{% url 'home' %}" class="btn btn-danger ">Voltar</a>
+            </div>
         </form>
-
-        <a href="{{ url_for('home') }}" class="btn btn-primary mt-3">Voltar</a>
-
     </div>
 
 

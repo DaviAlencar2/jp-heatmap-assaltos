@@ -4,8 +4,7 @@ def home(request):
     return render(request, "home.html")
 
 def stats(request):
-    return render(request, "estatisticas.html")
+    return render(request, "stats.html")
 
 def add(request):
-    return render(request, "adicionar_assalto.html")
-
+    return render(request, "add.html")

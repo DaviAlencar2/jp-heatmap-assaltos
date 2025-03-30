@@ -9,19 +9,19 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body class="bg-dark text-light">
-    <nav class="d-flex gap-2 justify-content-center mb-3 mt-3">
-        <a href="{ url 'stats' %}" class="btn btn-primary">Estatísticas</a>
-        <a href="{ url 'add' %}" class="btn btn-primary">Adicionar Assalto</a>
-    </nav>
+    <nav class="d-flex gap-2 justify-content-center mb-3 mt-3 align-items-center">
+        <a href="{% url 'stats' %}" class="btn btn-primary">Estatísticas</a>
+        <a href="{% url 'add' %}" class="btn btn-primary">Adicionar Assalto</a>
 
-    <div class="text-center dropdown mb-3">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="yearDropdown">Selecione o Ano</button>
-        <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="#" onclick="updateMap(2024)">2024</a></li>
-            <li><a class="dropdown-item" href="#" onclick="updateMap(2023)">2023</a></li>
-            <li><a class="dropdown-item" href="#" onclick="updateMap(2022)">2022</a></li>
-        </ul>
-    </div>
+        <div class="text-center dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="yearDropdown">Selecione o Ano</button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="#" onclick="updateMap(2024)">2024</a></li>
+                <li><a class="dropdown-item" href="#" onclick="updateMap(2023)">2023</a></li>
+                <li><a class="dropdown-item" href="#" onclick="updateMap(2022)">2022</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <div id="map" style="width: 90%; height: 500px;" class="rounded mx-auto"></div>
 
