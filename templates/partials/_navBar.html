@@ -3,6 +3,7 @@
     <a href="{% url 'stats' %}" class="btn btn-primary">Estatísticas</a>
     <a href="{% url 'add' %}" class="btn btn-primary">Adicionar Assalto</a>
 
+    {% if show_year_dropdown %}
     <div class="text-center dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="yearDropdown">Selecione o Ano</button>
         <ul class="dropdown-menu dropdown-menu-dark">
@@ -11,4 +12,5 @@
             <li><a class="dropdown-item" href="#" onclick="updateMap(2022)">2022</a></li>
         </ul>
     </div>
+    {% endif %}
 </nav>
