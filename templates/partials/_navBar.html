@@ -1,8 +1,5 @@
-{% extends 'base.html' %}
-{% block title %}Mapa de Assaltos{% endblock %}
-{% load static%}
-{% block content %}
 <nav class="d-flex gap-2 justify-content-center mb-3 mt-3 align-items-center">
+    <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
     <a href="{% url 'stats' %}" class="btn btn-primary">Estatísticas</a>
     <a href="{% url 'add' %}" class="btn btn-primary">Adicionar Assalto</a>
 
@@ -15,12 +12,3 @@
         </ul>
     </div>
 </nav>
-
-<div id="map" style="width: 90%; height: 500px;" class="rounded mx-auto"></div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script src="{% static 'mapa.js' %}"></script>"
-{% endblock %}
-

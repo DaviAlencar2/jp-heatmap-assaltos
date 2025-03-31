@@ -1,10 +1,10 @@
 from django.shortcuts import render
 
 def home(request):
-    return render(request, "home.html")
+    return render(request, "heatmap/home.html")
 
 def stats(request):
-    return render(request, "stats.html")
+    return render(request, "heatmap/stats.html")
 
 def add(request):
-    return render(request, "add.html")
+    return render(request, "heatmap/add.html")

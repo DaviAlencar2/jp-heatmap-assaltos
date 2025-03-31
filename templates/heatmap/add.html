@@ -1,10 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'heatmap/base.html' %}
 {% block title %}Adicionar Assalto{% endblock %}
 {% load static %}
 {% block content %}
 <div class="container">
 
-    <h1>Adicionar Assalto</h1>
+    {% include 'partials/_navBar.html' %}
+    <h2>Adicionar Assalto</h2>
     <form action="{% url 'home' %}" method="POST">
         <div class="mb-3">
             <label for="bairro" class="form-label">Endereço ou Bairro (obrigatório):</label>
