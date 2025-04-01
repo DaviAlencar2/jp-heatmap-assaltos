@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from .models import Robbery
 from datetime import datetime
-from .geocode.geocode import geocode_address, API_KEY
+from .geocode.geocode import geocode_address
 
 def home(request):
     return render(request, "heatmap/home.html", {'show_year_dropdown': True})
@@ -34,7 +34,7 @@ def dados_ano(request, year):
     data = []
     for assalto in assaltos_list:
         location = f"{assalto.location.street}, {assalto.location.number} - {assalto.location.neighborhood.name}"
-        latitude, longitude = geocode_address(location,API_KEY)
+        latitude, longitude = geocode_address(location)
         data.append({
             'id': assalto.id,
             'Latitude': str(latitude),

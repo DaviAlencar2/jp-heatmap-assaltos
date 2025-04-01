@@ -6,7 +6,7 @@ load_dotenv()
 
 API_KEY = os.getenv("GEOCODE_API_KEY")
 
-def geocode_address(address, API_KEY):
+def geocode_address(address):
     base_url = "https://maps.googleapis.com/maps/api/geocode/json"
     params = {
         "address": address,
@@ -24,7 +24,7 @@ def geocode_address(address, API_KEY):
         return None, None
 
 
-def coordinate_to_address(latitude, longitude, API_KEY):
+def coordinate_to_address(latitude, longitude):
     base_url = "https://maps.googleapis.com/maps/api/geocode/json"
     params = {
         "latlng": f"{latitude},{longitude}",
