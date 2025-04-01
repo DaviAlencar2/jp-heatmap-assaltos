@@ -6,24 +6,29 @@
 <div class="container">
     <form action="{% url 'home' %}" method="POST">
         <div class="mb-3">
-            <label for="bairro" class="form-label">Endereço ou Bairro (obrigatório):</label>
-            <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Ex: Avenida Paulista, 1578, São Paulo, SP, Brasil">
+            <label for="location" class="form-label">Endereço:</label>
+            <input type="text" class="form-control" id="location" name="location" placeholder="Ex: Rua joao galiza de andrade, 49 - jardim sao paulo">
         </div>
-        <div >
-            <label for="latitude" class="form-label">latitude(Apenas se não colocou endereço.):</label>
-            <input type="text" class="form-control" id="latitude" name="latitude">
 
-            <label for="longitude" class="form-label">longitude (Apenas se não colocou endereço.): </label>
-            <input type="text" class="form-control" id="longitude" name="longitude">
-        </div>
         <div class="mb-3">
-            <label for="data" class="form-label">Data:</label>
-            <input type="date" class="form-control" id="data" name="data">
+            <label for="date" class="form-label">Data:</label>
+            <input type="date" class="form-control" id="date" name="date">
         </div>
-        <div class="d-flex align-items-center gap-2">
+
+        <div class="mb-3">
+            <label for="time" class="form-label">Hora:</label>
+            <input type="time" class="form-control" id="time" name="time">
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Descrição:</label>
+            <textarea class="form-control" id="description" name="description" rows="2"></textarea>
+        </div>
+
+        <nav class="d-flex align-items-center gap-2">
             <button type="submit" class="btn btn-primary">Adicionar</button>
             <a href="{% url 'home' %}" class="btn btn-danger ">Voltar</a>
-        </div>
+        </nav>
     </form>
 </div>
 {% endblock %}
