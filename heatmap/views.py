@@ -33,7 +33,8 @@ def dados_ano(request, year):
     assaltos_list = Robbery.objects.filter(date__year=year)
     data = []
     for assalto in assaltos_list:
-        location = f"{assalto.location.street}, {assalto.location.number} - {assalto.location.neighborhood.name}"
+        if assalto.location.latitude == "" or assalto.location.longitude == "":
+            location = f"{assalto.location.street}, {assalto.location.number} - {assalto.location.neighborhood.name}"
         latitude, longitude = geocode_address(location)
         data.append({
             'id': assalto.id,
