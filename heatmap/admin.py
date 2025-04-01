@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Assalto
+from .models import Robbery, Location, Neighborhood
 
 class ListarAssaltos(admin.ModelAdmin):
     list_display = ("id","location","date","time")
@@ -8,4 +8,6 @@ class ListarAssaltos(admin.ModelAdmin):
     list_filter = ("type",)
     list_per_page = 10
 
-admin.site.register(Assalto,ListarAssaltos)
+admin.site.register(Robbery, ListarAssaltos)
+admin.site.register(Location)
+admin.site.register(Neighborhood)
