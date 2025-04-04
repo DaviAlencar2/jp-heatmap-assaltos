@@ -1,5 +1,5 @@
 {% if not user_is_authenticade %}
-<a class="btn btn-primary">Faça Login</a>
+<a class="btn btn-primary" href="{% url 'login' %}">Faça Login</a>
 {% else %}
 <a class="btn btn-primary" href="{% url 'logout' %}">Sair</a>
 {% endif %}
