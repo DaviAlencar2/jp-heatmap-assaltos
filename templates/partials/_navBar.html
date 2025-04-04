@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+<nav class="navbar navbar-expand-sm bg-body-tertiary " data-bs-theme="dark">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-      <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll mx-auto" style="--bs-scroll-height: 100px;">
+      <div class="collapse navbar-collapse " id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll mx-auto d-flex" style="--bs-scroll-height: 100px;">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
           </li>
@@ -14,18 +14,9 @@
           <li class="nav-item">
             <a class="nav-link" aria-disabled="true" href="{% url 'stats' %}">Estatísticas</a>
           </li>
-          {% if show_year_dropdown %}
-          <li class="nav-item dropdown ">
-            <a class="nav-link dropdown-toggle text-primary-emphasis" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Filtre por ano
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#" onclick="updateMap(2025)">2025</a></li>
-              <li><a class="dropdown-item" href="#" onclick="updateMap(2024)">2024</a></li>
-            </ul>
-          </li>
-          {% endif %}
+          <li class="nav-item "> {% include 'partials/_userBtn.html' %}</li>
         </ul>
+       
       </div>
     </div>
   </nav>
