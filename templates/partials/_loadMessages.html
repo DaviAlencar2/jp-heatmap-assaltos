@@ -1,0 +1,9 @@
+{% if messages %}
+<div class="position-fixed top-80 start-50 translate-middle-x p-3" style="z-index: 1050;">
+    {% for message in messages %}
+        <div class="alert alert-primary" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+{% endif %}

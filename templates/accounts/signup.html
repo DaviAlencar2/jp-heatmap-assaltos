@@ -1,0 +1,22 @@
+{% extends 'heatmap/base.html' %}
+{% block title %}Cadastre-se{% endblock %}
+
+{% block content %}
+<div class="container w-50 mt-5 mx-auto">
+    <form action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}
+        
+        {% for field in form.visible_fields %}
+            <div class="mb-3">
+                <label for="{{ field.id_for_label }}" class="">{{ field.label }}</label>
+                {{ field }}
+            </div>
+        {% endfor %}
+
+        <nav >
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <a href="{% url 'home' %}" class="btn btn-danger ">Voltar</a>
+        </nav>
+    </form>
+</div>
+{% endblock %}

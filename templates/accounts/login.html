@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="container w-50 mt-5 mx-auto">
-    <form action="{% url 'add' %}" method="POST">
+    <form action="{% url 'login' %}" method="POST">
         {% csrf_token %}
         
         {% for field in form.visible_fields %}
@@ -16,6 +16,7 @@
         <nav >
             <button type="submit" class="btn btn-primary">Entrar</button>
             <a href="{% url 'home' %}" class="btn btn-danger ">Voltar</a>
+            <a href="{% url 'signup' %}"> Cadastrar</a>
         </nav>
     </form>
 </div>
