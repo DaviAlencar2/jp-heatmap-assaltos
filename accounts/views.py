@@ -19,22 +19,28 @@ def login(request):
                 auth.login(request, user)
                 messages.success(request, 'Login realizado com sucesso!')
                 return redirect('home')
-            else:
-                messages.error(request, 'Usuário ou senha inválidos!')
-                return redirect('login')
+            
+            else :
+                messages.error(request, 'Usuário ou senha inválidos.')
+                return render(request, 'accounts/login.html', {'form': form, 'in_login_or_signup': True})
+            
         else:
             messages.error(request, 'Formulário inválido.')
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"Erro em {field}: {error}")
             return render(request, 'accounts/login.html', {'form': form, 'in_login_or_signup': True})
             
-    elif request.method == "GET":
+    if request.method == "GET":
         form = LoginForms()
         return render(request, 'accounts/login.html', {'form': form, 'in_login_or_signup': True})
+
 
 def signup(request):
     if request.method == 'POST':
         form = SignupForms(request.POST)
 
-        if form.is_valid() and form.cleaned_data['password'] == form.cleaned_data['confirm_password']:
+        if form.is_valid() and form["password"].value() == form["confirm_password"].value():
 
             username = form["username"].value()
             password = form["password"].value()
@@ -59,6 +65,9 @@ def signup(request):
                 return redirect('signup')
         else:
             messages.error(request, 'Dados inválidos ou as senhas não conferem.')
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"Erro em {field}: {error}")
             return render(request, 'accounts/signup.html', {'form': form, 'in_login_or_signup': True})
 
     elif request.method == 'GET':
