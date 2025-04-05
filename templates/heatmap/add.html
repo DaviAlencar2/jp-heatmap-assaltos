@@ -3,27 +3,16 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-    <form action="{% url 'home' %}" method="POST">
-        <div class="mb-3">
-            <label for="location" class="form-label">Endereço:</label>
-            <input type="text" class="form-control" id="location" name="location" placeholder="Ex: Rua joao galiza de andrade, 49 - jardim sao paulo">
-        </div>
+<div class="container w-50 mt-3 mb-3 mx-auto">
+    <form action="{% url 'add' %}" method="POST">
+        {% csrf_token %}
 
-        <div class="mb-3">
-            <label for="date" class="form-label">Data:</label>
-            <input type="date" class="form-control" id="date" name="date">
-        </div>
-
-        <div class="mb-3">
-            <label for="time" class="form-label">Hora:</label>
-            <input type="time" class="form-control" id="time" name="time">
-        </div>
-
-        <div class="mb-3">
-            <label for="description" class="form-label">Descrição:</label>
-            <textarea class="form-control" id="description" name="description" rows="2"></textarea>
-        </div>
+        {% for field in form.visible_fields %}
+            <div class="mb-3">
+                <label for="{{ field.id_for_label }}" class="">{{ field.label }}</label>
+                {{ field }}
+            </div>
+        {% endfor %}
 
         <nav class="d-flex align-items-center gap-2">
             <button type="submit" class="btn btn-primary">Adicionar</button>

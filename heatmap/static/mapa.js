@@ -26,6 +26,8 @@ function updateMap(year) {
                         title: point.Bairro,
                         riseOnHover: true,
                         interactive: true,
+                        iconUrl: 'https://cdn-icons-png.flaticon.com/512/5610/5610989.png',
+                        iconSize: [15, 15]
                     })
                 }).bindPopup("Assalto").addTo(map);
             });
