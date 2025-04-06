@@ -1,9 +1,27 @@
 {% if messages %}
 <div class="position-fixed top-50 start-50 translate-middle-x p-3" style="z-index: 1050;">
     {% for message in messages %}
-        <div class="alert alert-primary" role="alert">
-            {{ message }}
-        </div>
+        {% if message.tags == 'success' %}
+            <div class="alert alert-success" role="alert">
+                <i class="bi bi-check-circle-fill me-2"></i>{{ message }}
+            </div>
+        {% elif message.tags == 'error' %}
+            <div class="alert alert-danger" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ message }}
+            </div>
+        {% elif message.tags == 'warning' %}
+            <div class="alert alert-warning" role="alert">
+                <i class="bi bi-exclamation-circle-fill me-2"></i>{{ message }}
+            </div>
+        {% elif message.tags == 'info' %}
+            <div class="alert alert-info" role="alert">
+                <i class="bi bi-info-circle-fill me-2"></i>{{ message }}
+            </div>
+        {% else %}
+            <div class="alert alert-primary" role="alert">
+                <i class="bi bi-bell-fill me-2"></i>{{ message }}
+            </div>
+        {% endif %}
     {% endfor %}
 </div>
 {% endif %}
