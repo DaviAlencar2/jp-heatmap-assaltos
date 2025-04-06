@@ -3,7 +3,6 @@
     <a class="btn btn-primary" href="{% url 'login' %}">Faça Login</a>
     {% else %}
     <a class="btn btn-primary" href="{% url 'logout' %}">Sair</a>
-    <p>{{ user.username }}</p>
     {% endif %}
 </div> 
 

@@ -82,7 +82,16 @@ if os.getenv('RENDER_DATABASE_EXTERNAL_URL'):
             'PORT': os.getenv('DB_PORT'),
         }
     }
-else:
+
+elif os.getenv('RENDER_DATABASE_INTERNAL_URL'):
+    # Configuração automática do PostgreSQL com dj_database_url
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.getenv('RENDER_DATABASE_INTERNAL_URL')
+        )
+    }
+
+else: # Uso desencorajado ja que os dados vao estar no render.
     # Configuração para desenvolvimento local com SQLite
     DATABASES = {
         'default': {
