@@ -11,7 +11,10 @@ def is_staff(user):
 
 
 def home(request):
-    return render(request, "heatmap/home.html", {'show_year_dropdown': True})
+    years = Robbery.objects.dates('date', 'year')
+    years = [year.year for year in years]
+    print(years)
+    return render(request, "heatmap/home.html", {'years': years})
 
 
 def stats(request):
