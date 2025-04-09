@@ -6,9 +6,11 @@ from django.contrib import messages
 from .forms import RobberyForm
 
 
+def ping(request): # Para o cronjob fazer request em manter o projeto 'acordado' no render.
+    return JsonResponse({'status': 'ok'})
+
 def is_staff(user):
     return user.is_authenticated and user.is_staff
-
 
 def home(request):
     years = Robbery.objects.dates('date', 'year')
@@ -16,10 +18,8 @@ def home(request):
     print(years)
     return render(request, "heatmap/home.html", {'years': years})
 
-
 def stats(request):
     return render(request, "heatmap/stats.html")
-
 
 def add(request):
     if not is_staff(request.user):
@@ -67,7 +67,6 @@ def add(request):
     elif request.method == "GET":
         form = RobberyForm(request.POST)
         return render(request, "heatmap/add.html", {'form': form})
-
 
 def data_by_year(request, year):
     robberies_list = Robbery.objects.filter(date__year=year)
