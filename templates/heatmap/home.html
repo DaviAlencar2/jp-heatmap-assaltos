@@ -8,9 +8,17 @@
     
     <ul class="dropdown-menu dropdown-menu-dark text-center">
       {% for year in years %}
-        <li><a class="dropdown-item" href="#" onclick="updateMap('{{ year }}')">{{ year }}</a></li>
+        <li><a class="dropdown-item {% if year == '2025'%}active{% endif %}" href="#" onclick="updateMap('{{ year }}')">{{ year }}</a></li>
       {% endfor %}
     </ul>
+
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+      <label class="btn btn-outline-primary" for="btnradio1" onclick="changeMapType('heat')">Heatmap</label>
+    
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btnradio2" onclick="changeMapType('points')">Pontos</label>
+    </div>
 </div>
 
 <div id="map" style="width: 100% ; height: 70vh;" class="rounded mx-auto"></div>
