@@ -53,6 +53,7 @@ def add(request):
                 latitude=latitude,
                 longitude=longitude,
                 is_valid=False,  
+                user=request.user,
             )
             robbery.save()
             messages.success(request, 'Dados adicionados com sucesso!')
