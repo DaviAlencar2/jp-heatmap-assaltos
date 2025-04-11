@@ -36,7 +36,7 @@ class Robbery(models.Model):
     is_valid = models.BooleanField(default=False)
 
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="robberies", default=defautl_user())
+        User, on_delete=models.CASCADE, related_name="robberies", default=defautl_user)
     
     created_at = models.DateTimeField(auto_now_add=True)
     
