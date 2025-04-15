@@ -23,7 +23,7 @@ def stats(request):
 
 def add(request):
     if not is_staff(request.user):
-        messages.warning(request, 'Por enquanto, apenas administradores podem adicionar dados. Já estamos trabalhando para liberar essa funcionalidade para todos os usuários.')
+        messages.warning(request, 'Por enquanto, apenas administradores podem adicionar dados.')
         return redirect('home')
     
     elif request.method == "POST":
