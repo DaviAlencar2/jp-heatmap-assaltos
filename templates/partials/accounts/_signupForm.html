@@ -1,0 +1,16 @@
+<div class="container" style="max-width: 500px;">
+    <form action="{% url 'signup' %}" method="POST" class="bg-dark bg-opacity-25 p-4 rounded">
+        {% csrf_token %}
+        
+        {% for field in form.visible_fields %}
+            <div class="mb-3">
+                <label for="{{ field.id_for_label }}" class="">{{ field.label }}</label>
+                {{ field }}
+            </div>
+        {% endfor %}
+
+        <nav class="d-flex flex-wrap gap-2">
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </nav>
+    </form>
+</div>

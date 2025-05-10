@@ -6,6 +6,9 @@ from django.contrib import messages
 
 
 def login(request):
+    is_htmx = request.headers.get('HX-Request') == 'true'
+    template = 'partials/accounts/_loginForm.html' if is_htmx else 'accounts/login.html'
+
     if request.method == "POST":
         form = LoginForms(request.POST)
 
@@ -30,10 +33,13 @@ def login(request):
     else:
         form = LoginForms()
 
-    return render(request, 'accounts/login.html', {'form': form, 'in_login_or_signup': True})
+    return render(request, template, {'form': form})
 
 
 def signup(request):
+    is_htmx = request.headers.get('HX-Request') == 'true'
+    template = 'partials/accounts/_signupForm.html' if is_htmx else 'accounts/signup.html'
+
     if request.method == 'POST':
         form = SignupForms(request.POST)
 
@@ -60,7 +66,7 @@ def signup(request):
     else:
         form = SignupForms()
     
-    return render(request, 'accounts/signup.html', {'form': form, 'in_login_or_signup': True})
+    return render(request, template, {'form': form,})
 
 def logout(request):
     auth.logout(request)

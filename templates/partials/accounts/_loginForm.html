@@ -1,0 +1,19 @@
+<div class="w-100">
+    <div class="container   " style="max-width: 500px;">
+        <form action="{% url 'login' %}" method="POST" class="bg-dark bg-opacity-25 p-4 rounded">
+            {% csrf_token %}
+    
+            {% for field in form.visible_fields %}
+                <div class="mb-3">
+                    <label for="{{ field.id_for_label }}" class="">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endfor %}
+    
+            <nav class="d-flex flex-wrap gap-2 align-items-center">
+                <button type="submit" class="btn btn-primary">Entrar</button>
+                <a href="{% url 'signup' %}" class="ms-md-3 text-primary text-decoration-underline fw-bold">Cadastre-se</a>
+            </nav>
+        </form>
+    </div>
+</div>

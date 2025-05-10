@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-{% include 'partials/_head.html' %}
+{% include 'partials/global/_head.html' %}
 {% load static %}
 
-<body class="bg-body-tertiary text-light" data-bs-theme="dark">
-    {% include 'partials/_navBar.html' %}
+<body class="bg-body-tertiary text-light d-flex flex-column min-vh-100" data-bs-theme="dark">
+    {% include 'partials/global/_navBar.html' %}
 
-    <div class="container mt-3">
-        {% include 'partials/_loadMessages.html' %}
+    <main class="flex-fill d-flex justify-content-center align-items-center" id="mainContent">
+        {% include 'partials/global/_loadMessages.html' %}
         {% block content %}{% endblock %}
-    </div>
+    </main>
     
-    {% include 'partials/_footer.html' %}
+    {% include 'partials/global/_footer.html' %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{% static 'removeMessage.js' %}"></script>
 </body>
